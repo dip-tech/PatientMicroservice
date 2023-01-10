@@ -86,4 +86,15 @@ public class PatientController {
         }
 
     }
+    
+    @PutMapping("/update")
+    public String updatePatient(@RequestBody PatientDetails pd) {
+    	try {
+    		patientDetailsRepo.save(pd);
+    		return "UPDATE SUCCESSFUL";
+    	}catch(Exception x) {
+    		return "UPDATE FAILED";
+    	}
+    	
+    }
 }
